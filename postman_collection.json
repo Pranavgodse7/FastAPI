@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "672010fb-bbeb-498c-bf5d-7c4367bc3f24",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44835966",
+		"_collection_link": "https://pranav-6701583.postman.co/workspace/pranav's-Workspace~a457fdac-46c9-4f85-8e95-6e508e659f8f/collection/44835966-672010fb-bbeb-498c-bf5d-7c4367bc3f24?action=share&source=collection_link&creator=44835966"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9090/list_tables",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Table Name</th>\r",
+							"        <th>Row Name</th>\r",
+							"        <th>Sum</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>{{response.table_name}}</td>\r",
+							"        <td>{{response.row_name}}</td>\r",
+							"        <td>{{response.sum}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/list_tables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"list_tables"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/list_tables",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/list_tables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"list_tables"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 10 May 2025 13:50:13 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "24"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"tables\": [\n        \"CapBudgWS\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/get_table_details?table_name=CapBudgWS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/get_table_details?table_name=CapBudgWS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"get_table_details"
+					],
+					"query": [
+						{
+							"key": "table_name",
+							"value": "CapBudgWS"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/get_table_details?table_name=CapBudgWS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/get_table_details?table_name=CapBudgWS",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"get_table_details"
+							],
+							"query": [
+								{
+									"key": "table_name",
+									"value": "CapBudgWS"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 10 May 2025 13:50:26 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "983"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"table_name\": \"CapBudgWS\",\n    \"row_names\": [\n        \"INITIAL INVESTMENT\",\n        \"Initial Investment=\",\n        \"Opportunity cost (if any)=\",\n        \"Lifetime of the investment\",\n        \"Salvage Value at end of project=\",\n        \"Deprec. method(1:St.line;2:DDB)=\",\n        \"Tax Credit (if any )=\",\n        \"Other invest.(non-depreciable)=\",\n        \"WORKING CAPITAL\",\n        \"Initial Investment in Work. Cap=\",\n        \"Working Capital as % of Rev=\",\n        \"Salvageable fraction at end=\",\n        \"GROWTH RATES\",\n        \"Revenues\",\n        \"Fixed Expenses\",\n        \"Default: The fixed expense growth rate is set equal to the growth rate in revenues by default.\",\n        \"INITIAL INVESTMENT\",\n        \"Investment\",\n        \" - Tax Credit\",\n        \"Net Investment\",\n        \" + Working Cap\",\n        \" + Opp. Cost\",\n        \" + Other invest.\",\n        \"Initial Investment\",\n        \"SALVAGE VALUE\",\n        \"Equipment\",\n        \"Working Capital\",\n        \"OPERATING CASHFLOWS\",\n        \"Lifetime Index\",\n        \"Revenues\",\n        \" -Var. Expenses\",\n        \" - Fixed Expenses\",\n        \"EBITDA\",\n        \" - Depreciation\",\n        \"EBIT\",\n        \" -Tax\",\n        \"EBIT(1-t)\",\n        \" + Depreciation\",\n        \" - ∂ Work. Cap\",\n        \"NATCF\",\n        \"Discount Factor\",\n        \"Discounted CF\",\n        \"Book Value (beginning)\",\n        \"Depreciation\",\n        \"BV(ending)\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:9090/row_sum?table_name=CapBudgWS&row_name=Tax%20Credit%20(if%20any%20)%3D",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/row_sum?table_name=CapBudgWS&row_name=Tax%20Credit%20(if%20any%20)%3D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"row_sum"
+					],
+					"query": [
+						{
+							"key": "table_name",
+							"value": "CapBudgWS"
+						},
+						{
+							"key": "row_name",
+							"value": "Tax%20Credit%20(if%20any%20)%3D"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:9090/row_sum?table_name=CapBudgWS&row_name=Tax%20Credit%20(if%20any%20)%3D",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/row_sum?table_name=CapBudgWS&row_name=Tax%20Credit%20(if%20any%20)%3D",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"row_sum"
+							],
+							"query": [
+								{
+									"key": "table_name",
+									"value": "CapBudgWS"
+								},
+								{
+									"key": "row_name",
+									"value": "Tax%20Credit%20(if%20any%20)%3D"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 10 May 2025 13:50:34 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "71"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"table_name\": \"CapBudgWS\",\n    \"row_name\": \"Tax Credit (if any )=\",\n    \"sum\": 0.4\n}"
+				}
+			]
+		}
+	]
+}
