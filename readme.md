@@ -20,7 +20,7 @@ This FastAPI project allows users to upload an Excel file and interact with it t
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Pranavgodse7/FastAPI.git
 cd excel_api
 ```
 
