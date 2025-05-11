@@ -1,9 +1,16 @@
+import os
+
+# Print current working directory and absolute Excel file path
+print(f"Current Working Directory: {os.getcwd()}")
+print(f"Excel File Absolute Path: {os.path.abspath('Data/capbudg.xls')}")
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from utils import get_table_names, get_row_names, calculate_row_sum
 
 app = FastAPI(title="Excel Sheet Processor API")
 
+
+# Allow all origins for development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -36,7 +43,7 @@ def row_sum(table_name: str = Query(...), row_name: str = Query(...)):
         return {
             "table_name": table_name,
             "row_name": row_name,
-            "sum": result  # No units are returned, only numerical values
+            "sum": result
         }
     except ValueError as ve:
         raise HTTPException(status_code=404, detail=str(ve))
